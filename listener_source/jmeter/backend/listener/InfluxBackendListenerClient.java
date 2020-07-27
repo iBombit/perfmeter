@@ -198,6 +198,7 @@ public class InfluxBackendListenerClient extends AbstractBackendListenerClient i
 						httpMethod = "TRANSACTION";
 					}
 					String requestName = sampleResult.getSampleLabel();
+					String responseMessage = sampleResult.getResponseMessage();
 					String responseCode = sampleResult.getResponseCode();
 					if (responseCode.length()>3 || responseCode.length()==0){
 						responseCode = "NuN";
@@ -234,7 +235,7 @@ public class InfluxBackendListenerClient extends AbstractBackendListenerClient i
 							.append("Error message: ").append(errorMessage).append(delimeter)
 							.append("Request params: ").append(query).append(delimeter)
 							.append("Headers: ").append(headers).append(delimeter)
-							.append("Response body: ").append(response).append(delimeter)
+							.append("Response body: ").append(response).append(responseMessage).append(delimeter)
 							.append("\n").toString());
 				}
 
